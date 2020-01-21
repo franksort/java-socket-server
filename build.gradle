@@ -1,0 +1,25 @@
+plugins {
+	id 'java'
+	id 'application'
+}
+
+group = 'com.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+application {
+	mainClassName = 'com.demo.DemoApplication'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.5.2")
+}
+
+test {
+	useJUnitPlatform()
+}
