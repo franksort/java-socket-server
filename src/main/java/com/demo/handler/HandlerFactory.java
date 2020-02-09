@@ -1,8 +1,8 @@
-package com.demo;
+package com.demo.handler;
 
 import java.net.Socket;
 
-interface HandlerFactory {
+public interface HandlerFactory {
 
     Handler createHandler(Socket socket);
 }
