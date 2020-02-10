@@ -5,6 +5,7 @@ import com.demo.handler.HandlerFactory;
 import com.demo.handler.impl.StringPrintingHandlerFactory;
 import com.demo.server.Server;
 import com.demo.server.ServerFactory;
+import com.google.common.eventbus.EventBus;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -13,9 +14,10 @@ import java.io.IOException;
 public class DemoApplication {
 
     public static void main(String[] args) throws IOException {
-        log.debug("Starting demo server");
-        HandlerFactory handlerFactory = new StringPrintingHandlerFactory();
-//        HandlerFactory handlerFactory = new BytePrintingHandlerFactory();
+        log.debug("Starting application");
+
+        EventBus eventBus = new EventBus();
+        HandlerFactory handlerFactory = new StringPrintingHandlerFactory(eventBus);
         Server server = ServerFactory.createFixedConnectionServer(handlerFactory);
         server.listen();
     }
